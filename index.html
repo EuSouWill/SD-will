@@ -6,24 +6,18 @@
     <title>Formulário de Login</title>
     <link rel="stylesheet" href="/front-end/style.css">
 </head>
-
+<body>
     <div class="logo">
         <img src="/front-end/img/logotipo_sd_horizontal_branco.svg" alt="Simples Dental">
     </div>
-</header>
-<body>
     <div class="container">
-     
         <form action="#" method="post">           
             <label for="username">E-mail*</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Senha*</label>
-            <input type="password" id="password" name="password" required>
-            <a href="">Esqueci minha senha </a> <br>
-            <br>
-        
-
-            <button class="btn" onclick="loginWithDelay()">ENTRAR NO SISTEMA</button>
+            <input type="text" id="username" name="username" required placeholder="E-mail">
+            <label for="password">Senha:</label>
+            <input type="password" id="password" required placeholder="Senha" onkeydown="handleKeyDown(event)">
+            <a href="">Esqueci minha senha </a> <br><br>
+            <button type="button" class="btn" onclick="loginWithDelay()">ENTRAR NO SISTEMA</button>
             <br>
             <a>Se ainda não tiver uma conta no Simples Dental,<a href="link">cadastre-se agora.</a></a> <br>
             
@@ -33,6 +27,43 @@
             </footer>
         </form>
     </div>
+    <script>
+        var usuarios = [
+          { username: 'admin', password: 'admin' },
+          { username: 'will', password: '2223' },
+          { username: 'usuario2', password: 'senha2' },
+          { username: 'roman', password: 'roman' }
+          // adicione mais usuários aqui
+        ];
+    
+        function login() {
+          var username = document.getElementById('username').value;
+          var password = document.getElementById('password').value;
+    
+          // Verifica se as credenciais correspondem a algum usuário registrado
+          var usuarioEncontrado = usuarios.find(function(usuario) {
+            return usuario.username === username && usuario.password === password;
+          });
+    
+          if (usuarioEncontrado) {
+            sessionStorage.setItem('isLoggedIn', 'true');
+            location.href = '/front-end/home.html';
+          } else {
+            alert('Nome de usuário ou senha incorretos. Tente novamente.');
+          }
+        }
+    
+        function loginWithDelay() {
+          // Simula o atraso de 1 segundo antes de chamar a função de login
+          setTimeout(login, 1000);
+          event.preventDefault(); // Evita o envio automático do formulário
+        }
+    
+        function handleKeyDown(event) {
+          if (event.keyCode === 13) {
+            loginWithDelay();
+          }
+        }
+      </script>
 </body>
-
 </html>

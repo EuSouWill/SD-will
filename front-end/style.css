@@ -1,7 +1,7 @@
 body {
     background-image: url('img/background_login.jpg');
-    background-size: cover;
-    font-size: 12px;
+    background-size:cover;
+    font-size: 12px; /* Aumentei o tamanho da fonte para dispositivos móveis */
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #030303;
     margin: 0;
@@ -9,51 +9,54 @@ body {
 }
 
 .container {
-    
+    overflow: hidden;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh; /* Definindo a altura para ocupar toda a tela */
 }
 
 .logo {
-    margin-bottom: 100px;
     text-align: center;
     
-    
+    margin-bottom: 5px; /* Reduzi a margem para dispositivos móveis */
 }
 
 .logo img {
-    width: 300px; /* Ajuste o tamanho conforme necessário */
-    margin-top: 300px;    
+    margin-top: 100px;
+    width: 80%; /* Definindo a largura da imagem em percentual */
+    max-width: 300px; /* Limitando a largura máxima da imagem */
 }
 
 .link {
     color: #007bff;
-    text-decoration: line-through;
-    
+    text-decoration: none; /* Removi a linha no texto do link */
 }
 
 form {
-    margin-top: -50px;
+    margin-top: 0px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
-.btn{
-    display: block;
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      text-align: center;
-      background-color: #4CAF50; /* Cor de fundo do botão */
-      color: #fff; /* Cor do texto do botão */
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    width: 80%; /* Definindo a largura do formulário em percentual */
+    max-width: 400px; /* Limitando a largura máxima do formulário */
+    margin: 20px; /* Adicionando margem ao redor do formulário */
 }
 
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 input[type="text"],
 input[type="password"],
@@ -72,6 +75,26 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-footer{
+footer {
     text-align: center;
+}
+
+/* Media query para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px; /* Reduzindo ainda mais o tamanho da fonte para dispositivos móveis */
+    }
+
+    .container {
+        align-items: flex-start; /* Alinhando itens no topo para dispositivos móveis */
+    }
+
+    .logo img {
+        margin-top: 50px; /* Reduzindo a margem superior da imagem para dispositivos móveis */
+    }
+
+    form {
+        width: 90%; /* Ajustando a largura do formulário para dispositivos móveis */
+        margin: 10px; /* Reduzindo a margem ao redor do formulário para dispositivos móveis */
+    }
 }
