@@ -1,6 +1,8 @@
 body {
     background-image: url('img/background_login.jpg');
-    font-family: Arial, sans-serif;
+    background-size: cover;
+    font-size: 12px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #030303;
     margin: 0;
     padding: 0;
@@ -27,17 +29,31 @@ body {
 
 .link {
     color: #007bff;
-    text-decoration: none;
+    text-decoration: line-through;
+    
 }
 
 form {
-    
+    margin-top: -50px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 300px;
 }
+.btn{
+    display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+      background-color: #4CAF50; /* Cor de fundo do botão */
+      color: #fff; /* Cor do texto do botão */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
 
 input[type="text"],
 input[type="password"],

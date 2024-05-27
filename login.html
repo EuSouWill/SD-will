@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página de Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      background-image: url(/img/mdc-partners-6667621_1594995307.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      margin-top: 100px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      width: 95%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    /* Layout responsivo - telas até 414 pixels */
+    @media (max-width: 414px) {
+      .container {
+        width: 90%;
+        margin-top: 50px;
+        padding: 10px;
+      }
+    }
+
+    /* Layout responsivo - telas até 768 pixels */
+    @media (min-width: 415px) and (max-width: 768px) {
+      .container {
+        width: 70%;
+        margin-top: 80px;
+        padding: 15px;
+      }
+    }
+
+    /* Layout responsivo - telas acima de 768 pixels */
+    @media (min-width: 769px) {
+      .container {
+        width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <div class="input-group">
+      <label for="username">User:</label>
+      <input type="text" id="username" required placeholder="Username ">
+    </div>
+    <div class="input-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" required placeholder="Password" onkeydown="handleKeyDown(event)">
+    </div>
+    <button class="btn" onclick="loginWithDelay()">Login</button>
+  </div>
+
+  <script>
+    var usuarios = [
+      { username: 'admin', password: 'admin' },
+      { username: 'will', password: '2223' },
+      { username: 'usuario2', password: 'senha2' },
+      { username: 'roman', password: 'roman' }
+      // adicione mais usuários aqui
+    ];
+
+    function login() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Verifica se as credenciais correspondem a algum usuário registrado
+      var usuarioEncontrado = usuarios.find(function(usuario) {
+        return usuario.username === username && usuario.password === password;
+      });
+
+      if (usuarioEncontrado) {
+        sessionStorage.setItem('isLoggedIn', 'true');
+        location.href = '/home.html';
+      } else {
+        alert('Nome de usuário ou senha incorretos. Tente novamente.');
+      }
+    }
+
+    function loginWithDelay() {
+      // Simula o atraso de 1 segundo antes de chamar a função de login
+      setTimeout(login, 1000);
+    }
+
+    function handleKeyDown(event) {
+      if (event.keyCode === 13) {
+        loginWithDelay();
+      }
+    }
+  </script>
+</body>
+</html>
