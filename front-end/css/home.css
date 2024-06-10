@@ -90,7 +90,7 @@ body.dark {
 }
 
 /* ===== Reusable code - Here ===== */
-.sidebar li {
+.sidebar li nav-link {
     height: 50px;
     list-style: none;
     display: flex;
@@ -104,7 +104,8 @@ body.dark {
     border-radius: 6px;
 }
 
-.sidebar .icon {
+
+.sidebar .icon  {
     min-width: 60px;
     border-radius: 6px;
     height: 100%;
