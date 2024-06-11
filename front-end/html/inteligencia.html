@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inteligência</title>
-    
+    <title>Curso Online</title>
+    <link rel="stylesheet" href="/front-end/css/inteligencia.css">
 </head>
 <body>
-<h1>olá</h1>
-    
+    <div class="container">
+        <h1>Curso Online</h1>
+        <div class="content">
+            <div id="video-container">
+                <video id="course-video" width="640" controls>
+                    <source src="/video/inteligencia/v1.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+            </div>
+            <div id="playlist-container">
+                <h2>Playlist</h2>
+                <ul id="playlist">
+                    <li data-index="0">Vídeo 1 <span class="status">&#10004;</span></li>
+                    <li data-index="1">Vídeo 2 <span class="status">&#10004;</span></li>
+                    <li data-index="2">Vídeo 3 <span class="status">&#10004;</span></li>
+                    <li data-index="3">Vídeo 4 <span class="status">&#10004;</span></li>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-container">
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <span id="progress-percentage">0%</span>
+        </div>
+        <button id="next-button">Próximo Vídeo</button>
+    </div>
+    <script src="/javascript/inteligencia.js"></script>
 </body>
 </html>
