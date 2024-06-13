@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vendas</title>
+    <title>Verificação de Códigos de Barras</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="/front-end/css/vendas.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Verificação de Códigos de Barras</h1>
+        <div class="content">
+            <label for="barcode1">Código de Barras 1:</label>
+            <input type="text" id="barcode1" name="barcode1">
+            <label for="barcode2">Código de Barras 2:</label>
+            <input type="text" id="barcode2" name="barcode2">
+            <button id="check-button">Verificar</button>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script src="/javascript/vendas.js"></script>
 </body>
 </html>

@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function loadVideo(index) {
         videoElement.src = videos[index];
         videoElement.load();
-        videoElement.play();
     }
 
     function updateProgress() {
