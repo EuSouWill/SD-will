@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const questions = [
-        "Qual é a resposta correta para o vídeo 1?",
+        "Em qual aba do menu inteligência está localizado as consutas canceladas?",
         "Qual é a resposta correta para o vídeo 2?",
         "Qual é a resposta correta para o vídeo 3?",
         "Qual é a resposta correta para o vídeo 4?"
     ];
 
     const answers = [
-        ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+        ["Tarefas", "Performance", "Ortodontia", "Nenhuma"],
         ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
         ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
         ["Opção 1", "Opção 2", "Opção 3", "Opção 4"]
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const correctAnswers = [0, 1, 2, 3]; // Índices das respostas corretas (0-based)
     const explanations = [
-        "Explicação para o vídeo 1.",
+        "No menu inteligência, na aba de Tarefas, você consegue um relatório das consultas cancelas.",
         "Explicação para o vídeo 2.",
         "Explicação para o vídeo 3.",
         "Explicação para o vídeo 4."
