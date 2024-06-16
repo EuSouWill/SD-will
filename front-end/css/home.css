@@ -100,13 +100,14 @@ body.dark {
 
 .sidebar header .image,
 .sidebar .icon {
+    
     min-width: 60px;
     border-radius: 6px;
 }
 
 
 .sidebar .icon  {
-    min-width: 60px;
+    min-width: 40px;
     border-radius: 6px;
     height: 100%;
     display: flex;
@@ -128,7 +129,6 @@ body > nav > div > div.bottom-content > li > a{
 }
 .sidebar .text {
     font-size: 17px;
-    font-weight: 500;
     white-space: nowrap;
     opacity: 1;
 }
@@ -155,7 +155,7 @@ body > nav > div > div.bottom-content > li > a{
 
 header .image-text .name {
     margin-top: 2px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 }
 
@@ -224,7 +224,7 @@ body.dark .sidebar header .toggle {
 }
 
 .sidebar li a:hover {
-    background-color: var(--primary-color);
+    background-color:#efe8e8;
 }
 
 .sidebar li a:hover .icon,
