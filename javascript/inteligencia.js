@@ -82,6 +82,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const correctAnswerElement = document.getElementById("correct-answer");
     const explanationElement = document.getElementById("explanation");
 
+    // Array para armazenar vídeos concluídos
+    let completedVideos = [];
+
+    // Carregar progresso do localStorage
+    const savedProgress = localStorage.getItem("currentVideoIndex");
+    if (savedProgress !== null) {
+        currentVideoIndex = parseInt(savedProgress);
+    }
+
+    // Carregar vídeos concluídos do localStorage
+    const savedCompletedVideos = localStorage.getItem("completedVideos");
+    if (savedCompletedVideos !== null) {
+        completedVideos = JSON.parse(savedCompletedVideos);
+        completedVideos.forEach(index => markVideoAsCompleted(index));
+    }
+
     videoElement.addEventListener("ended", () => {
         showQuiz();
     });
@@ -92,16 +108,22 @@ document.addEventListener("DOMContentLoaded", () => {
             loadVideo(currentVideoIndex);
             nextButton.disabled = true; // Desabilita o botão de próximo vídeo
             resultContainer.style.display = 'none';
+            saveProgress(currentVideoIndex);
         }
     });
 
     playlistItems.forEach(item => {
         item.addEventListener("click", () => {
             const index = parseInt(item.getAttribute("data-index"));
-            currentVideoIndex = index;
-            loadVideo(currentVideoIndex);
-            nextButton.disabled = true; // Desabilita o botão de próximo vídeo
-            resultContainer.style.display = 'none';
+            if (isVideoAccessible(index)) {
+                currentVideoIndex = index;
+                loadVideo(currentVideoIndex);
+                nextButton.disabled = true; // Desabilita o botão de próximo vídeo
+                resultContainer.style.display = 'none';
+                saveProgress(currentVideoIndex);
+            } else {
+                alert("Você precisa completar os vídeos anteriores primeiro.");
+            }
         });
     });
 
@@ -118,9 +140,10 @@ document.addEventListener("DOMContentLoaded", () => {
             resultContainer.style.display = 'block';
             if (answer === correctAnswer) {
                 markVideoAsCompleted(currentVideoIndex);
-                updateProgress();
                 nextButton.disabled = false; // Habilita o botão de próximo vídeo
                 hideQuiz();
+                saveProgress(currentVideoIndex); // Salva o progresso
+                saveCompletedVideo(currentVideoIndex); // Salva vídeo concluído
             } else {
                 alert("Resposta incorreta. Tente novamente.");
             }
@@ -142,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateProgress() {
-        const progress = ((currentVideoIndex + 1) / videos.length) * 100;
+        const progress = (completedVideos.length / videos.length) * 100;
         progressBar.value = progress;
         progressPercentage.textContent = `${progress.toFixed(0)}%`;
     }
@@ -152,6 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         item.classList.add('completed');
         const status = item.querySelector('.status');
         status.innerHTML = '&#10004;'; // Símbolo de checkmark
+        updateProgress();
     }
 
     function showQuiz() {
@@ -167,6 +191,39 @@ document.addEventListener("DOMContentLoaded", () => {
         options.forEach(option => option.checked = false);
     }
 
-    // Carrega o primeiro vídeo inicialmente
+    function saveProgress(index) {
+        localStorage.setItem("currentVideoIndex", index);
+    }
+
+    function saveCompletedVideo(index) {
+        if (!completedVideos.includes(index)) {
+            completedVideos.push(index);
+            localStorage.setItem("completedVideos", JSON.stringify(completedVideos));
+        }
+        enableAccessibleVideos();
+    }
+
+    function isVideoAccessible(index) {
+        if (index === 0) return true; // Primeiro vídeo sempre acessível
+        return completedVideos.includes(index - 1); // Verifica se o vídeo anterior foi concluído
+    }
+
+    function enableAccessibleVideos() {
+        playlistItems.forEach((item, index) => {
+            if (isVideoAccessible(index)) {
+                item.classList.remove('disabled');
+                item.style.pointerEvents = 'auto';
+            } else {
+                item.classList.add('disabled');
+                item.style.pointerEvents = 'none';
+            }
+        });
+    }
+
+    // Inicializa o estado dos vídeos na playlist
+    enableAccessibleVideos();
+
+    // Carrega o primeiro vídeo ou o último vídeo salvo inicialmente
     loadVideo(currentVideoIndex);
+    updateProgress();
 });
