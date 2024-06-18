@@ -18,6 +18,11 @@ h1{
     padding-right: 300px;
     font-size: 30px;
 }
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+    color: #353636;
+}
 nav {
     background-color: #206eb7;
     width: 100%;
@@ -70,13 +75,16 @@ nav .nav-right img {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    height: 400px; /* Defina a altura fixa desejada */
+    overflow-y: scroll; /* Adiciona rolagem vertical */
 }
-#playlist-container h2 {
+#playlist-container  {
     margin-top: 0;
 }
 #playlist {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 #playlist li {
     padding: 10px;
@@ -104,7 +112,7 @@ nav .nav-right img {
     margin-top: 20px;
 }
 #progress-bar {
-    width: 80%;
+    width: 100%;
     height: 20px;
     margin-right: 10px;
 }
@@ -115,6 +123,13 @@ nav .nav-right img {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    background-color: #59c0f0;
+    color: #f4f6f7;
+    
+}
+#next-button:hover{
+    background-color: #4f9bcf;  
+    box-shadow: #59c0f0;
 }
 #quiz-container, result-container {
     margin-top: 20px;

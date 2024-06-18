@@ -3,36 +3,66 @@ document.addEventListener("DOMContentLoaded", () => {
         "/video/inteligencia/v1.mp4",
         "/video/inteligencia/v2.mp4",
         "/video/inteligencia/v3.mp4",
-        "/video/inteligencia/v4.mp4"
+        "/video/inteligencia/v4.mp4",
+        "/video/inteligencia/v5.mp4",
+        "/video/inteligencia/v6.mp4",
+        "/video/inteligencia/v7.mp4",
+        "/video/inteligencia/v8.mp4",
+        "/video/inteligencia/v9.mp4",
+        "/video/inteligencia/v10.mp4",
     ];
 
     const descriptions = [
         "Descrição do Vídeo 1",
         "Descrição do Vídeo 2",
         "Descrição do Vídeo 3",
-        "Descrição do Vídeo 4"
+        "Descrição do Vídeo 4",
+        "Descrição do Vídeo 5",
+        "Descrição do Vídeo 6",
+        "Descrição do Vídeo 7",
+        "Descrição do Vídeo 8",
+        "Descrição do Vídeo 9",
+        "Descrição do Vídeo 10",
     ];
 
     const questions = [
-        "Em qual aba do menu inteligência está localizado as consutas canceladas?",
+        "Em qual aba do menu inteligência está localizado as consultas canceladas?",
         "Qual é a resposta correta para o vídeo 2?",
         "Qual é a resposta correta para o vídeo 3?",
-        "Qual é a resposta correta para o vídeo 4?"
+        "Qual é a resposta correta para o vídeo 4?",
+        "Qual é a resposta correta para o vídeo 5?",
+        "Qual é a resposta correta para o vídeo 6?",
+        "Qual é a resposta correta para o vídeo 7?",
+        "Qual é a resposta correta para o vídeo 8?",
+        "Qual é a resposta correta para o vídeo 9?",
+        "Qual é a resposta correta para o vídeo 10?",
     ];
 
     const answers = [
         ["Tarefas", "Performance", "Ortodontia", "Nenhuma"],
         ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
         ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
-        ["Opção 1", "Opção 2", "Opção 3", "Opção 4"]
+        ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+        ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+        ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+        ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+        ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+        ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
+        ["Opção 1", "Opção 2", "Opção 3", "Opção 4"],
     ];
 
-    const correctAnswers = [0, 1, 2, 3]; // Índices das respostas corretas (0-based)
+    const correctAnswers = [0, 1, 2, 3, 0, 1, 2, 3, 1, 2]; // Índices das respostas corretas (0-based)
     const explanations = [
-        "No menu inteligência, na aba de Tarefas, você consegue um relatório das consultas cancelas.",
+        "No menu inteligência, na aba de Tarefas, você consegue um relatório das consultas canceladas.",
         "Explicação para o vídeo 2.",
         "Explicação para o vídeo 3.",
-        "Explicação para o vídeo 4."
+        "Explicação para o vídeo 4.",
+        "Explicação para o vídeo 5.",
+        "Explicação para o vídeo 6.",
+        "Explicação para o vídeo 7.",
+        "Explicação para o vídeo 8.",
+        "Explicação para o vídeo 9.",
+        "Explicação para o vídeo 10.",
     ];
 
     let currentVideoIndex = 0;
@@ -53,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const explanationElement = document.getElementById("explanation");
 
     videoElement.addEventListener("ended", () => {
-        markVideoAsCompleted(currentVideoIndex);
         showQuiz();
     });
 
@@ -61,7 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentVideoIndex < videos.length - 1) {
             currentVideoIndex++;
             loadVideo(currentVideoIndex);
-            updateProgress();
             nextButton.disabled = true; // Desabilita o botão de próximo vídeo
             resultContainer.style.display = 'none';
         }
@@ -72,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const index = parseInt(item.getAttribute("data-index"));
             currentVideoIndex = index;
             loadVideo(currentVideoIndex);
-            updateProgress();
             nextButton.disabled = true; // Desabilita o botão de próximo vídeo
             resultContainer.style.display = 'none';
         });
@@ -90,6 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
             explanationElement.textContent = `Explicação: ${explanations[currentVideoIndex]}`;
             resultContainer.style.display = 'block';
             if (answer === correctAnswer) {
+                markVideoAsCompleted(currentVideoIndex);
+                updateProgress();
                 nextButton.disabled = false; // Habilita o botão de próximo vídeo
                 hideQuiz();
             } else {
