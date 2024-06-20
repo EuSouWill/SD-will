@@ -5,6 +5,9 @@
     font-family: 'Poppins', sans-serif;
     
 }
+.content{
+    text-align: center;
+}
 
 body {
     min-height: 100vh;
