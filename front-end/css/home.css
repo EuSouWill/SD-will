@@ -3,9 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    
 }
-.content{
+
+.content {
+    display: block;
     text-align: center;
 }
 
@@ -13,17 +14,8 @@ body {
     min-height: 100vh;
     background-color: var(--body-color);
     transition: var(--tran-05);
-    
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Estilos do formulário */
-form {
-    width: 300px;
-    margin: 50px auto; /* Altere o valor da margem superior conforme necessário */
-    text-align: center;
 }
 
 input {
@@ -32,22 +24,12 @@ input {
     width: 250px;
     height: 30px;
 }
-h1{
+
+h1 {
     text-align: center;
     margin-bottom: 20px;
-    margin-top:20px ;
+    margin-top: 20px;
 }
-
-h3 {
-    text-align: center;
-}
-
-h4 {
-    text-align: center;
-}
-
-/* Google Font Import - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
     /* ===== Colors ===== */
@@ -59,7 +41,6 @@ h4 {
     --text-color: #707070;
 
     /* ====== Transition ====== */
-    --tran-03: all 0.2s ease;
     --tran-03: all 0.3s ease;
     --tran-04: all 0.3s ease;
     --tran-05: all 0.3s ease;
@@ -75,9 +56,6 @@ body.dark {
 }
 
 /* ===== Sidebar ===== */
-
-
-
 .sidebar {
     position: fixed;
     top: 0;
@@ -88,39 +66,32 @@ body.dark {
     padding-bottom: 20px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
-    z-index: 100;  
+    z-index: 100;
 }
 
 .sidebar.close {
     width: 88px;
- 
 }
 
 .sidebar .icon {
-    
     min-width: 30px;
     border-radius: 6px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-  
-    
-  
 }
 
 .sidebar .text,
 .sidebar .icon {
-    
-    color:#18191a;
+    color: #18191a;
     transition: var(--tran-03);
-    
 }
 
-body > nav > div > div.bottom-content > li > a{
-   
+body > nav > div > div.bottom-content > li > a {
     margin-bottom: 50px;
 }
+
 .sidebar .text {
     margin: 20px;
     font-size: 17px;
@@ -179,16 +150,15 @@ body.dark .sidebar header .toggle {
     border-radius: 6px;
     text-decoration: none;
     transition: var(--tran-03);
-    
 }
 
 .sidebar li a:hover {
-    background-color:#efe8e8;
+    background-color: #efe8e8;
 }
 
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text {
-    color:#18191a;
+    color: #18191a;
 }
 
 body.dark .sidebar li a:hover .icon,
@@ -196,13 +166,12 @@ body.dark .sidebar li a:hover .text {
     color: var(--text-color);
 }
 
-.sidebar .menu-bar  {
+.sidebar .menu-bar {
     height: calc(100% - 55px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow-y: scroll;
-    
 }
 
 .menu-bar::-webkit-scrollbar {
@@ -231,32 +200,7 @@ body.dark .sidebar li a:hover .text {
     transition: var(--tran-05);
 }
 
-.toggle-switch .switch:before {
-    content: '';
-    position: absolute;
-    height: 24px;
-    width: 24px;
-    border-radius: 50%;
-    background-color: var(--sidebar-color);
-    top: 2px;
-    left: 2px;
-    transition: var(--tran-05);
-}
-
-body.dark .toggle-switch .switch:before {
-    transform: translateX(27px);
-}
-
-.toggle-switch .switch.dark {
-    background-color: var(--primary-color);
-}
-
-.toggle-switch .switch.dark:before {
-    transform: translateX(1px);
-}
-
-
-.footer-content{
+.footer-content {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -270,58 +214,69 @@ body.dark .toggle-switch .switch:before {
     font-size: 14px;
 }
 
-.round-image {
-    width: 50px; /* Defina a largura desejada para a imagem */
-    height: 50px; /* Defina a altura desejada para a imagem */
-    border-radius: 50%; /* Aplica uma borda redonda com raio de 50% */
-    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites da imagem */
-  }
-  
-  .text{
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-emphasis-color: black;
-    font-size: 24px;
-  }
-
-  .back-button {
-    background-color: #695CFE;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .back-button:hover {
-    background-color: #4C46B8;
-  }
-
-  .principal {
-    text-align: center;
-    font-size: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .text-principal{    
+.text-principal {
     padding: 50px;
-    text-align: justify; 
+    text-align: justify;
     max-width: 800px;
-    margin: 0 auto;    
-  }
+    margin: 0 auto;
+}
 
-  .element.style{
-    margin: 100px;
-  }
+/* =========================== */
+/*         Responsividade       */
+/* =========================== */
 
-  .style {
-    padding-top: 110px;
-    margin: 100px;
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .sidebar.close {
+        width: 60px;
+    }
+
+    .sidebar .text {
+        font-size: 14px;
+    }
+
+    .sidebar header .toggle {
+        right: -20px;
+    }
+
+    input {
+        width: 200px;
+    }
+
+    .text-principal {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 150px;
+    }
+
+    .sidebar.close {
+        width: 50px;
+    }
+
+    .sidebar .text {
+        font-size: 12px;
+    }
+
+    .sidebar header .toggle {
+        right: -15px;
+    }
+
+    input {
+        width: 150px;
+    }
+
+    .footer-content {
+        font-size: 12px;
+    }
+
+    .text-principal {
+        padding: 10px;
+    }
 }
