@@ -1,11 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
+    <title>Curso Online</title>
+    <link rel="stylesheet" href="/front-end/css/inteligencia.css">
+    <link rel="stylesheet" href="/front-end/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 </head>
 <body>
-    
+    <nav>
+        <div class="nav-left">
+            <button onclick="window.location.href = '/front-end/html/home.html'">Simples Dental</button>
+        </div>
+        <div class="nav-right">
+            <img class="logo" src="/front-end/img/logo SD.jpg" alt="Foto do Usuário">
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Menu Inteligência</h1>
+        <div class="content">
+            <div id="video-container">
+                <video id="course-video" width="640" controls>
+                    <source src="/video/inteligencia/v1.mp4" type="video/mp4">
+                </video>
+                <p id="video-description">Descrição do vídeo</p>
+            </div>
+            <div id="playlist-container">
+                <h2>Playlist</h2>
+                <ul id="playlist">
+                    <li data-index="0">Vídeo 1 <span class="status">&#10004;</span></li>
+                    <li data-index="1">Vídeo 2 <span class="status">&#10004;</span></li>
+                    <li data-index="2">Vídeo 3 <span class="status">&#10004;</span></li>
+                    <li data-index="3">Vídeo 4 <span class="status">&#10004;</span></li>
+                    <li data-index="4">Vídeo 5 <span class="status">&#10004;</span></li>
+                    <li data-index="5">Vídeo 6 <span class="status">&#10004;</span></li>
+                    <li data-index="6">Vídeo 7 <span class="status">&#10004;</span></li>
+                    <li data-index="7">Vídeo 8 <span class="status">&#10004;</span></li>
+                    <li data-index="8">Vídeo 9 <span class="status">&#10004;</span></li>
+                    <li data-index="9">Vídeo 10 <span class="status">&#10004;</span></li>
+                </ul>
+            </div>
+        </div>
+        <div id="progress-container">
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <span id="progress-percentage">0%</span>
+        </div>
+        <button id="next-button" disabled>Próximo Vídeo</button>
+
+        <button id="generate-certificate" style="display: none;">Gerar Certificado</button>
+        <div id="certificate" style="display: none;">
+            <h2>Certificado de Conclusão</h2>
+            <p>Parabéns! Você concluiu o módulo de Inteligência.</p>
+            
+        </div>
+
+        <div id="quiz-container" style="display: none;">
+            <p id="quiz-question">Pergunta</p>
+            <form id="quiz-form">
+                <label><input type="radio" name="quiz" value="0"> <span id="option-0"></span></label><br>
+                <label><input type="radio" name="quiz" value="1"> <span id="option-1"></span></label><br>
+                <label><input type="radio" name="quiz" value="2"> <span id="option-2"></span></label><br>
+                <label><input type="radio" name="quiz" value="3"> <span id="option-3"></span></label><br>
+            </form>
+            <button id="submit-answer">Enviar Resposta</button>
+        </div>
+
+        <div id="result-container" style="display: none;">
+            <p id="user-answer">Sua resposta: </p>
+            <p id="correct-answer">Resposta correta: </p>
+            <p id="explanation">Explicação: </p>
+        </div>
+    </div>
+
+    <script src="/javascript/inteligencia.js"></script>
 </body>
 </html>
