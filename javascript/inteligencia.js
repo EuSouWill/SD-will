@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const descriptions = [
-        "Descrição do Vídeo 1",
+        "Para ver o que você tem previsto para receber você vai acessar o MENU INTELIGENCIA, clicar em ORTODONTIA e depois rolar a página até o final, onde você encontra este gráfico, igual na imagem abaixo.Este gráfico vai te mostrar as previsões de tudo que você tem para receber das suas manutenções de ortodontia, você pode ver ele por ano e por mês.",
         "Descrição do Vídeo 2",
         "Descrição do Vídeo 3",
         "Descrição do Vídeo 4",
@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const progressBar = document.getElementById("progress-bar");
     const progressPercentage = document.getElementById("progress-percentage");
     const nextButton = document.getElementById("next-button");
+    const generateCertificateButton = document.getElementById("generate-certificate");
     const playlistItems = document.querySelectorAll("#playlist li");
     const descriptionElement = document.getElementById("video-description");
     const quizContainer = document.getElementById("quiz-container");
@@ -81,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const userAnswerElement = document.getElementById("user-answer");
     const correctAnswerElement = document.getElementById("correct-answer");
     const explanationElement = document.getElementById("explanation");
+    const certificateElement = document.getElementById("certificate");
 
     // Array para armazenar vídeos concluídos
     let completedVideos = [];
@@ -144,12 +146,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 hideQuiz();
                 saveProgress(currentVideoIndex); // Salva o progresso
                 saveCompletedVideo(currentVideoIndex); // Salva vídeo concluído
+                if (currentVideoIndex === videos.length - 1) {
+                    generateCertificateButton.style.display = 'block'; // Exibe o botão de gerar certificado
+                }
             } else {
                 alert("Resposta incorreta. Tente novamente.");
             }
         } else {
             alert("Por favor, selecione uma resposta.");
         }
+    });
+
+    generateCertificateButton.addEventListener("click", () => {
+        certificateElement.style.display = 'block'; // Exibe o certificado
     });
 
     function loadVideo(index) {
