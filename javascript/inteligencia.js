@@ -189,8 +189,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showQuiz() {
         quizContainer.style.display = 'block';
+    
+        // Atualize o conteúdo do quiz com base no vídeo atual
+        const currentVideoIndex = videoElement.getAttribute('data-index');
+        quizQuestion.textContent = questions[currentVideoIndex];
+        document.getElementById("option-0").textContent = answers[currentVideoIndex][0];
+        document.getElementById("option-1").textContent = answers[currentVideoIndex][1];
+        document.getElementById("option-2").textContent = answers[currentVideoIndex][2];
+        document.getElementById("option-3").textContent = answers[currentVideoIndex][3];
     }
-
+    
     function hideQuiz() {
         quizContainer.style.display = 'none';
     }
