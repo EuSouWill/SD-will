@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prova de Avaliação</title>
+  <link rel="stylesheet" href="/front-end/css/certificado.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Prova de Avaliação</h1>
+    
+    <div id="start-container">
+      <form id="start-form">
+        <label for="tipoProva">Selecione o tipo de prova:</label>
+        <select id="tipoProva" required>
+          <option value="">Selecione</option>
+          <option value="agenda">Plano Agenda</option>
+          <option value="gestao">Plano Gestão</option>
+          <option value="vendas">Plano Vendas</option>
+        </select>
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" required>
+
+        <label for="tipoAcesso">Tipo de Acesso:</label>
+        <select id="tipoAcesso" required>
+          <option value="">Selecione</option>
+          <option value="secretaria">Secretária</option>
+          <option value="dentista">Dentista</option>
+          <option value="dentistaAdmin">Dentista Administrador</option>
+        </select>
+
+        <button type="submit">Iniciar Prova</button>
+      </form>
+    </div>
+
+    <div id="question-container" class="hidden"></div>
+
+    <div id="result-container" class="hidden">
+      <h2>Resultado</h2>
+      <p id="score"></p>
+      <div id="review-container"></div>
+      <button id="generate-certificate" class="hidden">Gerar Certificado</button>
+    </div>
+  </div>
+  <script src="/javascript/certificado.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</body>
+</html>
