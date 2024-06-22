@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  #certificado {
+    width: 800px;
+    height: 600px;
+    padding: 20px;
+    background-color: #e0f7fa;
+    border: 10px solid #008080;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+  }
+  
+  #logo {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .destacado {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  #qrcode {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .btn{
+    background-color: #47a9bb;
+  }

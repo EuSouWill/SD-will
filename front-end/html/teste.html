@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificado de Conclusão</title>
+  <link rel="stylesheet" href="/front-end/css/teste.css">
+</head>
+<body>
+  <div id="certificado">
+    <img src="/front-end/img/logo SD.jpg" alt="Logo da Empresa" id="logo">
+    <h1>Certificado de Conclusão</h1>
+    <p>Certificamos que</p>
+    <p id="nome-usuario" class="destacado"></p>
+    <p>CPF: <span id="cpf-usuario"></span></p>
+    <p>Concluiu o curso com sucesso</p>
+    <p id="data-hora"></p>
+    <p>Código de Autenticação: <span id="codigo-autenticacao"></span></p>
+    <div id="qrcode"></div>
+    <button class="btn" onclick="gerarCertificado()">Gerar Certificado</button>
+
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script src="/javascript/teste.js"></script>
+</body>
+</html>

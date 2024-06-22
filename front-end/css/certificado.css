@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family:'Times New Roman', Times, serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -16,7 +16,7 @@ body {
   }
   
   .logo {
-    margin-right: 30px;
+    margin-right: 30px; /* Reduzi a margem para economizar espaço */
   }
   
   nav .nav-left {
@@ -28,22 +28,22 @@ body {
     color: #ddd;
     background-color: transparent;
     border: none;
-    padding: 10px;
+    padding: 8px; /* Reduzi o padding para economizar espaço */
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px; /* Fonte um pouco menor para telas menores */
   }
   
   nav .nav-right img {
     border-radius: 50%;
-    height: 40px;
-    width: 40px;
+    height: 36px; /* Reduzi um pouco o tamanho da imagem */
+    width: 36px; /* Reduzi um pouco o tamanho da imagem */
   }
   
   .container {
-    width: 80%;
+    width: 90%; /* Aumentei um pouco a largura para melhorar a leitura */
     max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
+    margin: 30px auto; /* Ajustei a margem para melhor centralização */
+    padding: 15px; /* Reduzi o padding para economizar espaço */
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -59,11 +59,11 @@ body {
   }
   
   .question {
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reduzi a margem inferior para economizar espaço */
   }
   
   .question p {
-    font-size: 1.1em;
+    font-size: 1em; /* Ajustei o tamanho da fonte para melhor leitura */
   }
   
   label {
@@ -87,7 +87,7 @@ body {
     color: #fff;
     border: none;
     border-radius: 4px;
-    font-size: 1.2em;
+    font-size: 1.1em; /* Ajustei o tamanho da fonte para melhor leitura */
     cursor: pointer;
   }
   
@@ -96,7 +96,7 @@ body {
   }
   
   #review-container {
-    margin-top: 20px;
+    margin-top: 15px; /* Reduzi a margem superior para economizar espaço */
   }
   
   /* Responsividade */
@@ -104,13 +104,13 @@ body {
     .container {
       width: 95%;
       margin: 20px auto;
-      padding: 15px;
+      padding: 10px;
     }
-    
+  
     nav .nav-left button {
-      font-size: 14px;
+      font-size: 12px; /* Reduzi a fonte para telas menores */
     }
-    
+  
     nav .nav-right img {
       height: 30px;
       width: 30px;
