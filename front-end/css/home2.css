@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    font-family:'Times New Roman', Times, serif;
+    padding: 20px;
+  }
+
+  .container  {
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+  }
+ 
+  
+  .etapas-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .card h3 {
+    margin: 20px 0 10px;
+  }
+  
+  .card p {
+    color: #777;
+  }
+  
+  .card button {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .card button:disabled {
+    background-color: #ccc;
+  }
+  
+  .card.completed {
+    border-color: green;
+  }
+  
+  .card.completed button {
+    background-color: green;
+  }
+  
+  .card.completed p {
+    color: green;
+  }
+  
