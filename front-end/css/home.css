@@ -223,6 +223,14 @@ body.dark .sidebar li a:hover .text {
     margin: 0 auto;    
   }
 
+  p{   
+    margin-left: 500px;
+    margin-right: 500px;
+    font-size: 18x;
+    
+    
+  }
+
 /* =========================== */
 /*         Responsividade       */
 /* =========================== */
