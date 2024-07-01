@@ -159,6 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     generateCertificateButton.addEventListener("click", () => {
         certificateElement.style.display = 'block'; // Exibe o certificado
+        generateCertificateButton.style.display = 'none'; // Esconde o botão de gerar certificado
+        updateProgress(); // Atualiza a barra de progresso após exibir o certificado
     });
 
     function loadVideo(index) {
@@ -174,10 +176,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateProgress() {
-        const progress = (completedVideos.length / videos.length) * 100;
+        let progress = (completedVideos.length / (videos.length - 1)) * 100;
+        
+        // Verifica se o último vídeo foi completado e ajusta o progresso se necessário
+        if (completedVideos.includes(videos.length - 1)) {
+            progress = 100;
+        }
+        
         progressBar.value = progress;
         progressPercentage.textContent = `${progress.toFixed(0)}%`;
     }
+    
 
     function markVideoAsCompleted(index) {
         const item = playlistItems[index];
@@ -191,21 +200,20 @@ document.addEventListener("DOMContentLoaded", () => {
         quizContainer.style.display = 'block';
     
         // Atualize o conteúdo do quiz com base no vídeo atual
-        const currentVideoIndex = videoElement.getAttribute('data-index');
         quizQuestion.textContent = questions[currentVideoIndex];
         document.getElementById("option-0").textContent = answers[currentVideoIndex][0];
         document.getElementById("option-1").textContent = answers[currentVideoIndex][1];
         document.getElementById("option-2").textContent = answers[currentVideoIndex][2];
         document.getElementById("option-3").textContent = answers[currentVideoIndex][3];
     }
-    
+
     function hideQuiz() {
         quizContainer.style.display = 'none';
     }
 
     function resetQuiz() {
-        const options = document.querySelectorAll('input[name="quiz"]');
-        options.forEach(option => option.checked = false);
+        quizForm.reset();
+        resultContainer.style.display = 'none';
     }
 
     function saveProgress(index) {
@@ -213,34 +221,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function saveCompletedVideo(index) {
-        if (!completedVideos.includes(index)) {
-            completedVideos.push(index);
-            localStorage.setItem("completedVideos", JSON.stringify(completedVideos));
-        }
-        enableAccessibleVideos();
+        completedVideos.push(index);
+        localStorage.setItem("completedVideos", JSON.stringify(completedVideos));
     }
 
     function isVideoAccessible(index) {
-        if (index === 0) return true; // Primeiro vídeo sempre acessível
-        return completedVideos.includes(index - 1); // Verifica se o vídeo anterior foi concluído
+        // Um vídeo é acessível se todos os vídeos anteriores foram concluídos
+        return completedVideos.includes(index - 1);
     }
 
-    function enableAccessibleVideos() {
-        playlistItems.forEach((item, index) => {
-            if (isVideoAccessible(index)) {
-                item.classList.remove('disabled');
-                item.style.pointerEvents = 'auto';
-            } else {
-                item.classList.add('disabled');
-                item.style.pointerEvents = 'none';
-            }
-        });
-    }
-
-    // Inicializa o estado dos vídeos na playlist
-    enableAccessibleVideos();
-
-    // Carrega o primeiro vídeo ou o último vídeo salvo inicialmente
+    // Inicializa o vídeo atual
     loadVideo(currentVideoIndex);
     updateProgress();
 });
