@@ -177,6 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateProgress() {
         let progress = (completedVideos.length / videos.length) * 100; // Ajusta a fórmula de progresso
+        if (progress > 100) {
+            progress = 100; // Limita o progresso a 100%
+        }
         progressBar.value = progress;
         progressPercentage.textContent = `${progress.toFixed(0)}%`;
     }
