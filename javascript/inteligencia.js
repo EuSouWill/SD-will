@@ -176,17 +176,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateProgress() {
-        let progress = (completedVideos.length / (videos.length - 1)) * 100;
-        
-        // Verifica se o último vídeo foi completado e ajusta o progresso se necessário
-        if (completedVideos.includes(videos.length - 1)) {
-            progress = 100;
-        }
-        
+        let progress = (completedVideos.length / videos.length) * 100; // Ajusta a fórmula de progresso
         progressBar.value = progress;
         progressPercentage.textContent = `${progress.toFixed(0)}%`;
     }
-    
 
     function markVideoAsCompleted(index) {
         const item = playlistItems[index];
@@ -221,13 +214,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function saveCompletedVideo(index) {
-        completedVideos.push(index);
-        localStorage.setItem("completedVideos", JSON.stringify(completedVideos));
+        if (!completedVideos.includes(index)) {
+            completedVideos.push(index);
+            localStorage.setItem("completedVideos", JSON.stringify(completedVideos));
+        }
     }
 
     function isVideoAccessible(index) {
-        // Um vídeo é acessível se todos os vídeos anteriores foram concluídos
-        return completedVideos.includes(index - 1);
+        // Um vídeo é acessível se for o próximo na sequência ou já tiver sido concluído
+        return completedVideos.includes(index - 1) || completedVideos.includes(index);
     }
 
     // Inicializa o vídeo atual

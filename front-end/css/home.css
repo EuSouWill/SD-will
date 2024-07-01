@@ -215,10 +215,12 @@ body.dark .sidebar li a:hover .text {
     color: #555;
     font-size: 14px;
 } 
+
+
   
   .text-principal{    
-    padding: 50px;
-    text-align: justify; 
+    padding: auto;
+    
     max-width: 800px;
     margin: 0 auto;    
   }
@@ -228,6 +230,16 @@ body.dark .sidebar li a:hover .text {
     margin-right: 500px;
     font-size: 18x;
     
+    
+  }
+
+  #video-description {
+position: absolute;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666;
+    margin-top: 15px;
+    text-align: justify;
     
   }
 
