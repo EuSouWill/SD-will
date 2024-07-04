@@ -1,6 +1,6 @@
 body {
-    background-image: url('img/background_login.jpg');
-    background-size:cover;
+    background-image: url('/front-end/img/background_login.jpg');
+    background-size: cover;
     font-size: 12px; /* Aumentei o tamanho da fonte para dispositivos móveis */
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #030303;
@@ -9,22 +9,18 @@ body {
 }
 
 .container {
-    overflow: hidden;
-
     display: flex;
+    flex-direction: column; /* Adicionado para alinhar itens em coluna */
     justify-content: center;
     align-items: center;
     height: 100vh; /* Definindo a altura para ocupar toda a tela */
 }
 
 .logo {
-    text-align: center;
-    
-    margin-bottom: 5px; /* Reduzi a margem para dispositivos móveis */
+    margin-bottom: 20px; /* Adicionado espaço entre a logo e o formulário */
 }
 
 .logo img {
-    margin-top: 100px;
     width: 80%; /* Definindo a largura da imagem em percentual */
     max-width: 300px; /* Limitando a largura máxima da imagem */
 }
@@ -35,7 +31,6 @@ body {
 }
 
 form {
-    margin-top: 0px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -90,6 +85,7 @@ footer {
     }
 
     .logo img {
+       
         margin-top: 50px; /* Reduzindo a margem superior da imagem para dispositivos móveis */
     }
 

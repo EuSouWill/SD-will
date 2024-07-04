@@ -95,6 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Verificar se o certificado já foi gerado para este CPF
+        const certificadoGeradoKey = `certificado_${cpf}`;
+        const certificadoGerado = carregarLocalStorage(certificadoGeradoKey);
+        if (certificadoGerado) {
+            alert('Você já gerou um certificado com este CPF. Não é possível realizar a prova novamente.');
+            return;
+        }
+
         // Verificar se o CPF já realizou a prova 3 vezes
         const attemptsKey = `attempts_${cpf}`;
         let attempts = carregarLocalStorage(attemptsKey);
@@ -228,14 +236,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const email = userData.email;
         const cpf = userData.cpf;
         const tipoAcesso = userData.tipoAcesso;
-        const uniqueId = `ID-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+
+        // Verificar se já existe uma chave de autenticação para este CPF
+        const chaveAutenticacaoKey = `chaveAutenticacao_${cpf}`;
+        let chaveAutenticacao = carregarLocalStorage(chaveAutenticacaoKey);
+        if (!chaveAutenticacao) {
+            // Gerar uma nova chave de autenticação se não existir
+            chaveAutenticacao = `ID-${Math.random().toString(36).substr(2, 9).toUpperCase()}`;
+            salvarLocalStorage(chaveAutenticacaoKey, chaveAutenticacao);
+        }
 
         doc.text('Certificado de Conclusão', 20, 20);
         doc.text(`Nome: ${nome}`, 20, 40);
         doc.text(`Email: ${email}`, 20, 60);
         doc.text(`CPF: ${cpf}`, 20, 80);
         doc.text(`Tipo de Acesso: ${tipoAcesso}`, 20, 100);
-        doc.text(`ID Único: ${uniqueId}`, 20, 120);
+        doc.text(`ID Único: ${chaveAutenticacao}`, 20, 120);
         doc.save('certificado.pdf');
+
+        // Salvar no localStorage que o certificado foi gerado para este CPF
+        const certificadoGeradoKey = `certificado_${cpf}`;
+        salvarLocalStorage(certificadoGeradoKey, true);
     });
 });
